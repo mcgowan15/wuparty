@@ -167,7 +167,7 @@ class WuParty
 
     def handle_http_verb(verb, action, options={})
       options.merge!(:basic_auth => {:username => @api_key})
-      url = "#{base_url}/#{action}.json"
+      url = "#{base_url}/#{action}.json?system=true"
       result = self.class.send(verb, url, options)
       if result.is_a?(String)
         raise ConnectionError, result
